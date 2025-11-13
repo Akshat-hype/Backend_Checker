@@ -1,0 +1,145 @@
+:root{
+  --bg: #f4f6f9;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #2563eb;
+  --accent-600: #1e40af;
+  --border: #e6e9ee;
+  --shadow: 0 6px 18px rgba(16,24,40,0.06);
+  --mono: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html,body,#root { height: 100%; margin: 0; font-family: var(--mono); background: var(--bg); color: #111827; }
+
+/* Topbar */
+.topbar {
+  height: 56px;
+  background: linear-gradient(90deg,#ffffff, #fbfdff);
+  border-bottom: 1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 0 20px;
+  box-shadow: var(--shadow);
+}
+.brand { font-weight:700; color:#0f172a; }
+.top-actions { color:var(--muted); font-size:13px; }
+
+/* Layout */
+.container { display:flex; height: calc(100vh - 56px - 36px); } /* minus header & footer */
+.sidebar { width: 280px; border-right: 1px solid var(--border); background: #fafafa; padding: 18px; overflow:auto; }
+.main-area { flex:1; display:flex; flex-direction:column; gap:16px; padding:18px; overflow:auto; }
+
+/* Footer */
+.footer { height:36px; display:flex; align-items:center; justify-content:center; font-size:13px; color:var(--muted); border-top:1px solid var(--border); background:#fff; }
+
+/* Cards */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px;
+  box-shadow: var(--shadow);
+}
+
+/* Request panel */
+.request-panel .top-row { display:flex; gap:10px; align-items:center; margin-bottom:12px; }
+.method-select {
+  min-width:88px;
+  padding:8px 10px;
+  border:1px solid var(--border);
+  border-radius:6px;
+  background:#fff;
+  font-weight:600;
+}
+.url-input {
+  flex:1;
+  padding:8px 10px;
+  border:1px solid var(--border);
+  border-radius:6px;
+  outline:none;
+}
+.btn {
+  padding:8px 12px;
+  border-radius:6px;
+  border: none;
+  cursor:pointer;
+  font-weight:600;
+}
+.btn.send {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 6px 12px rgba(37,99,235,0.12);
+}
+.btn.ghost {
+  background:transparent;
+  color: var(--accent-600);
+  border: 1px solid rgba(30,64,175,0.08);
+}
+
+/* Panel row */
+.request-panel .row { display:flex; gap:16px; }
+.panel-col { flex:1; display:flex; flex-direction:column; }
+.label { font-size:13px; color:var(--muted); margin-bottom:6px; }
+.textarea {
+  min-height:100px;
+  border:1px solid var(--border);
+  border-radius:6px;
+  padding:10px;
+  resize:vertical;
+  font-family: monospace;
+  font-size:13px;
+}
+
+/* Response panel */
+.response-panel { flex:1; display:flex; flex-direction:column; gap:12px; overflow:auto; }
+.response-header { display:flex; gap:20px; align-items:center; font-size:14px; color:#111827; }
+.response-section h4 { margin:0 0 6px 0; font-size:13px; color:#111827; }
+.pre {
+  background:#0b1220;
+  color:#d1f5ff;
+  padding:12px;
+  border-radius:6px;
+  overflow:auto;
+  font-family: monospace;
+  font-size:13px;
+  max-height: 360px;
+}
+
+/* History */
+.history-title { margin:0 0 10px 0; font-size:16px; }
+.muted { color:var(--muted); font-size:13px; }
+.history-list { display:flex; flex-direction:column; gap:10px; margin-top:8px; }
+.history-item {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  padding:8px;
+  border-radius:6px;
+  background: #fff;
+  border: 1px solid var(--border);
+}
+.history-left { max-width: 75%; overflow:hidden; }
+.method-badge {
+  display:inline-block;
+  padding:4px 8px;
+  border-radius:6px;
+  font-weight:700;
+  font-size:12px;
+  background:#eef2ff;
+  color: #1e3a8a;
+  margin-bottom:6px;
+}
+.url { font-size:13px; color:#0f172a; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.history-right { text-align:right; font-size:12px; color:var(--muted); }
+
+/* empties */
+.response-panel.empty { display:flex; align-items:center; justify-content:center; color:var(--muted); height:240px; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .sidebar { display:none; }
+  .container { flex-direction:column; }
+  .request-panel .row { flex-direction:column; }
+}
