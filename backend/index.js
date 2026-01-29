@@ -10,6 +10,10 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 })
 
+app.get('/api/data', (req, res) => {
+    res.json({ message: 'This is some data from the backend!' });
+});
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 }
